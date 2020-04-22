@@ -3,7 +3,7 @@
   <title>旺仔-空间</title>
   
   
-  <link href="/gymuhang/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2020-04-22T03:11:59.101Z</updated>
@@ -66,6 +66,32 @@
   </entry>
   
   <entry>
+    <title>Nacos 实战</title>
+    <link href="http://yoursite.com/wiki/nacos/nacos/"/>
+    <id>http://yoursite.com/wiki/nacos/nacos/</id>
+    <published>2020-04-22T01:24:57.128Z</published>
+    <updated>2020-04-22T03:22:35.938Z</updated>
+    
+    <content type="html"><![CDATA[<p>一款异步的事件驱动的网络应用程序框架</p><p>阻塞   发起  —-》阻塞…. 阻塞  —–》完成</p><p>   检查…检查—-》阻塞—-》完成</p><p>​    阻塞与非阻塞是进程在访问数据的时候，数据是否准备就绪的处理方式，数据没准备好，要么等待数据准备好处理，要么直接返回即不处理</p><p>同步    <strong>双方的动作是经过双方协调的，步调一致的</strong></p><p>异步    <strong>双方并不需要协调，都可以随意进行各自的操作</strong></p><p>​    同步与异步都是基于应用程序和操作系统处理IO时间采用的方式，要么应用程序直接参与IO操作，要么IO操作交给操作系统去处理，应用程序只要等待通知</p><p>事件驱动：指在持续事务管理过程中，进行决策的一种策略，即跟随当前时间点上出现的事件，调动可用资源，执行相关任务，使不断出现的问题得以解决，防止事务堆积。（就是回调）</p><p>bio：阻塞同步io</p><p>nio：非阻塞io</p><p>aio：非阻塞异步io</p><p>​    <strong>为什么Netty使用NIO而不是AIO？</strong></p><ol><li><p>Netty不看重Windows上的使用，在Linux系统上，AIO的底层实现仍使用EPOLL，没有很好实现AIO，因此在性能上没有明显的优势，而且被JDK封装了一层不容易深度优化</p></li><li><p>Netty整体架构是reactor模型, 而AIO是proactor模型, 混合在一起会非常混乱,把AIO也改造成reactor模型看起来是把epoll绕个弯又绕回来</p></li><li><p>AIO还有个缺点是接收数据需要预先分配缓存, 而不是NIO那种需要接收时才需要分配缓存, 所以对连接数量非常大但流量小的情况, 内存浪费很多</p></li><li><p>Linux上AIO不够成熟，处理回调结果速度跟不到处理需求，比如外卖员太少，顾客太多，供不应求，造成处理速度有瓶颈（待验证）</p><p>BIO是面向流的，一位置每次从流中读取字节，直至读取完全部字节，他们没有缓存在任何地方，因此是不能前后移动流中数据，需要移动或者操作的话需要将其缓存到缓冲区。</p><p>NIO是面向缓冲区的，数据读取到一个稍后处理的缓冲区，当然可以前后移动或者操作缓冲区数据。</p></li></ol><h2 id="1-组件"><a href="#1-组件" class="headerlink" title="1.组件"></a>1.组件</h2><h3 id="1-Channel"><a href="#1-Channel" class="headerlink" title="1.Channel"></a>1.Channel</h3><p>​        Java NIO的基本构造，代表一个到实体的开放连接，如读操作和写操作</p><h3 id="2-回调"><a href="#2-回调" class="headerlink" title="2.回调"></a>2.回调</h3><p>​        异步处理的后续操作</p><h3 id="3-Future"><a href="#3-Future" class="headerlink" title="3.Future"></a>3.Future</h3><p>​        提供了另一种操作完成时通知应用程序的方式，可以看作是异步操作结果的占位符，它在未来的某个时刻完成，并提供对其结果的访问，相对于jdk netty提供了自己的实现ChannelFuture 用的是ChannelFutureListener，即监听器</p><h3 id="4-事件和ChannelHandler"><a href="#4-事件和ChannelHandler" class="headerlink" title="4.事件和ChannelHandler"></a>4.事件和ChannelHandler</h3><p>​    事件就是 网络事件的出入站等，而ChannelHandler 则是对应具体事件的处理</p><h3 id="5-放在一起"><a href="#5-放在一起" class="headerlink" title="5.放在一起"></a>5.放在一起</h3><p>​     Netty的异步编程模型建立在Future和回调上，并将事件派发到ChannelHandlerf方法。</p><p>​    触发事件 通过 抽象的Selector 进行派发代码，在内部为每个channel 分配EventLoop （线程驱动），来处理所有的事件 </p><h1 id="2-第一个应用"><a href="#2-第一个应用" class="headerlink" title="2.第一个应用"></a>2.第一个应用</h1><h1 id="3-netty的组件和设计"><a href="#3-netty的组件和设计" class="headerlink" title="3.netty的组件和设计"></a>3.netty的组件和设计</h1><h2 id="1-Channel-EventLoop-ChannelFuture-网络抽象"><a href="#1-Channel-EventLoop-ChannelFuture-网络抽象" class="headerlink" title="1.Channel EventLoop  ChannelFuture  网络抽象"></a>1.Channel EventLoop  ChannelFuture  网络抽象</h2><p>​        Channel   一个连接 socket  （提供了很多默认实现）</p><p>​        EventLoop 控制流、多线程、并发  （相等于线程，EventLoop 相当于线程池）一个Channel  绑定一个         </p><p>​    EventLoop ，但是一个EventLoop  可能会分配给一个或多个Channel   </p><p>​        ChannelFuture   异步通知</p><h2 id="2-ChannelHandler-ChannelPipeline-管理数据流以及执行应用程序处理逻辑"><a href="#2-ChannelHandler-ChannelPipeline-管理数据流以及执行应用程序处理逻辑" class="headerlink" title="2.ChannelHandler ChannelPipeline  管理数据流以及执行应用程序处理逻辑"></a>2.ChannelHandler ChannelPipeline  管理数据流以及执行应用程序处理逻辑</h2><p>​        ChannelHandler  </p><p>​            ①入站和出站的数据的程序逻辑容器，②编解码，③异常通知，④channel编程活动或非活动的通知，⑤</p><p>​            注册Eventloop，或者注销  Eventloop的通知，⑥用户自定义的事件通知</p><p>​            常用的   ChannelHandlerAdapter </p><p>​                    ChannelInboundHandlerAdapter</p><p>​                    ChannelOutboundHandlerAdapter</p><p>​                    ChannelDuplexHandler</p><p>​                    编码器、解码器</p><p>​                    SimpleChannelInboundHandler<t> T 需要处理的数据类型  ctx是可以继续传递下去</t></p><p>​        ChannelPipeline   （拦截过滤器实现）</p><p>​            是ChannelHandler  处理链的容器 出站和入站方向相反</p><p>​        引导 </p><p>​            为应用程序网络层配置提供容器，将进程绑定和端口或者将进程连接到某个指定主机的指定端口进程，面</p><p>​        向连接的协议，如 tcp</p><p>​            Bootstrap   一个EventLoopGroup</p><p>​            ServerBootstrap  两个EventLoopGroup （当然也可以共用一个） 一个用来监听服务，一个用来处理传入</p><p>​            客户端的连接</p><h1 id="4-传输"><a href="#4-传输" class="headerlink" title="4.传输"></a>4.传输</h1><p>​    OIO（阻塞）、NIO（非阻塞）、Local（JVM内部的异步通信）、Embedded（测试channelHandler）</p><p>​    netty的api 比较统一，只需要少量修改</p><h2 id="1-传输的api"><a href="#1-传输的api" class="headerlink" title="1.传输的api"></a>1.传输的api</h2><p>​    channel  线程安全的</p><p>​        EventLoop eventLoop(); 返回分配的eventLoop</p><p>​        ChannelPipeline pipeline(); 返回分配的ChannelPipeline </p><p>​        boolean isActive(); 是否是活动的</p><p>​        SocketAddress localAddress(); 返回本地的 SocketAddress </p><p>​        SocketAddress remoteAddress(); 返回远程的 SocketAddress </p><p>​        ChannelFuture write(Object var1); 将数据写到远程节点，这个数据传递给 ChannelPipeline 写队列的第一个</p><p>​        Channel flush(); 将之前写的数据 清空缓冲区数据 冲刷到 底层传输</p><p>​        ChannelFuture writeAndFlush(Object var1); 写然后冲刷</p><h2 id="2-内置的传输"><a href="#2-内置的传输" class="headerlink" title="2.内置的传输"></a>2.内置的传输</h2><p>​        提供的开箱可用的传输</p><p>​        1.NIO  io.netty.channel.socket.nio     java NIO为基础</p><p>​            选择器背后就是个注册表，当channel 发生变化时，得到通知，可能的变化：</p><p>​                新的channel已经接受并且就绪 OP_ACCEPT</p><p>​                channel连接已经完成 OP_CONNECT</p><p>​                channel有已经就绪的可供读取的数据  OP_READ</p><p>​                channel可用于写数据    OP_WRITE</p><p>​                zero-copy（直接将数据从文件移动到网络接口）</p><p>​        2.Epoll io.netty.channel.epoll      基于JNI驱动的epoll()和非阻塞IO，在linux上更快，比NIO更快</p><p>​            linux jdk nio 使用了这一特性，但是netty 做了自己的统一封装 （使用了更加轻量的中断）比jdk 更高效</p><p>​            替换的话 Epoll 的serverSocket和EvevtLoopGroup    </p><p>​        3.OIO io.netty.channme.socket.oio 使用java.net 包的阻塞流</p><p>​            适用于某些阻塞的调用库（jdbc）等</p><p>​        4.Local io.netty.channel.local  在JVM内部通过管道进行通信的本地传输​            </p><p>​        5.Embedded io.netty.channel.embedded  Embedded传输，允许使用channelhandler不是真正的网络传输，为</p><p>​          了测试channelHandler</p><table><thead><tr><th>传输</th><th>TCP</th><th>UDP</th><th>SCT</th><th>UDT</th></tr></thead><tbody><tr><td>NIO</td><td>√</td><td>√</td><td>√</td><td>√</td></tr><tr><td>Epoll（仅linux）</td><td>√</td><td>√</td><td>×</td><td>×</td></tr><tr><td>OIO</td><td>√</td><td>√</td><td>√</td><td>√</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一款异步的事件驱动的网络应用程序框架&lt;/p&gt;
+&lt;p&gt;阻塞   发起  —-》阻塞…. 阻塞  —–》完成&lt;/p&gt;
+&lt;p&gt;   检查…检查—-》阻塞—-》完成&lt;/p&gt;
+&lt;p&gt;​    阻塞与非阻塞是进程在访问数据的时候，数据是否准备就绪的处理方式，数据没准备好，要么等待数据准
+      
+    
+    </summary>
+    
+      <category term="nacos" scheme="http://yoursite.com/categories/nacos/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>netty源码解析</title>
     <link href="http://yoursite.com/wiki/netty/netty-action/"/>
     <id>http://yoursite.com/wiki/netty/netty-action/</id>
@@ -90,32 +116,6 @@
     
     
       <category term="netty" scheme="http://yoursite.com/tags/netty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nacos 实战</title>
-    <link href="http://yoursite.com/wiki/nacos/nacos/"/>
-    <id>http://yoursite.com/wiki/nacos/nacos/</id>
-    <published>2020-04-22T01:24:57.128Z</published>
-    <updated>2020-04-22T03:22:35.938Z</updated>
-    
-    <content type="html"><![CDATA[<p>一款异步的事件驱动的网络应用程序框架</p><p>阻塞   发起  —-》阻塞…. 阻塞  —–》完成</p><p>   检查…检查—-》阻塞—-》完成</p><p>​    阻塞与非阻塞是进程在访问数据的时候，数据是否准备就绪的处理方式，数据没准备好，要么等待数据准备好处理，要么直接返回即不处理</p><p>同步    <strong>双方的动作是经过双方协调的，步调一致的</strong></p><p>异步    <strong>双方并不需要协调，都可以随意进行各自的操作</strong></p><p>​    同步与异步都是基于应用程序和操作系统处理IO时间采用的方式，要么应用程序直接参与IO操作，要么IO操作交给操作系统去处理，应用程序只要等待通知</p><p>事件驱动：指在持续事务管理过程中，进行决策的一种策略，即跟随当前时间点上出现的事件，调动可用资源，执行相关任务，使不断出现的问题得以解决，防止事务堆积。（就是回调）</p><p>bio：阻塞同步io</p><p>nio：非阻塞io</p><p>aio：非阻塞异步io</p><p>​    <strong>为什么Netty使用NIO而不是AIO？</strong></p><ol><li><p>Netty不看重Windows上的使用，在Linux系统上，AIO的底层实现仍使用EPOLL，没有很好实现AIO，因此在性能上没有明显的优势，而且被JDK封装了一层不容易深度优化</p></li><li><p>Netty整体架构是reactor模型, 而AIO是proactor模型, 混合在一起会非常混乱,把AIO也改造成reactor模型看起来是把epoll绕个弯又绕回来</p></li><li><p>AIO还有个缺点是接收数据需要预先分配缓存, 而不是NIO那种需要接收时才需要分配缓存, 所以对连接数量非常大但流量小的情况, 内存浪费很多</p></li><li><p>Linux上AIO不够成熟，处理回调结果速度跟不到处理需求，比如外卖员太少，顾客太多，供不应求，造成处理速度有瓶颈（待验证）</p><p>BIO是面向流的，一位置每次从流中读取字节，直至读取完全部字节，他们没有缓存在任何地方，因此是不能前后移动流中数据，需要移动或者操作的话需要将其缓存到缓冲区。</p><p>NIO是面向缓冲区的，数据读取到一个稍后处理的缓冲区，当然可以前后移动或者操作缓冲区数据。</p></li></ol><h2 id="1-组件"><a href="#1-组件" class="headerlink" title="1.组件"></a>1.组件</h2><h3 id="1-Channel"><a href="#1-Channel" class="headerlink" title="1.Channel"></a>1.Channel</h3><p>​        Java NIO的基本构造，代表一个到实体的开放连接，如读操作和写操作</p><h3 id="2-回调"><a href="#2-回调" class="headerlink" title="2.回调"></a>2.回调</h3><p>​        异步处理的后续操作</p><h3 id="3-Future"><a href="#3-Future" class="headerlink" title="3.Future"></a>3.Future</h3><p>​        提供了另一种操作完成时通知应用程序的方式，可以看作是异步操作结果的占位符，它在未来的某个时刻完成，并提供对其结果的访问，相对于jdk netty提供了自己的实现ChannelFuture 用的是ChannelFutureListener，即监听器</p><h3 id="4-事件和ChannelHandler"><a href="#4-事件和ChannelHandler" class="headerlink" title="4.事件和ChannelHandler"></a>4.事件和ChannelHandler</h3><p>​    事件就是 网络事件的出入站等，而ChannelHandler 则是对应具体事件的处理</p><h3 id="5-放在一起"><a href="#5-放在一起" class="headerlink" title="5.放在一起"></a>5.放在一起</h3><p>​     Netty的异步编程模型建立在Future和回调上，并将事件派发到ChannelHandlerf方法。</p><p>​    触发事件 通过 抽象的Selector 进行派发代码，在内部为每个channel 分配EventLoop （线程驱动），来处理所有的事件 </p><h1 id="2-第一个应用"><a href="#2-第一个应用" class="headerlink" title="2.第一个应用"></a>2.第一个应用</h1><h1 id="3-netty的组件和设计"><a href="#3-netty的组件和设计" class="headerlink" title="3.netty的组件和设计"></a>3.netty的组件和设计</h1><h2 id="1-Channel-EventLoop-ChannelFuture-网络抽象"><a href="#1-Channel-EventLoop-ChannelFuture-网络抽象" class="headerlink" title="1.Channel EventLoop  ChannelFuture  网络抽象"></a>1.Channel EventLoop  ChannelFuture  网络抽象</h2><p>​        Channel   一个连接 socket  （提供了很多默认实现）</p><p>​        EventLoop 控制流、多线程、并发  （相等于线程，EventLoop 相当于线程池）一个Channel  绑定一个         </p><p>​    EventLoop ，但是一个EventLoop  可能会分配给一个或多个Channel   </p><p>​        ChannelFuture   异步通知</p><h2 id="2-ChannelHandler-ChannelPipeline-管理数据流以及执行应用程序处理逻辑"><a href="#2-ChannelHandler-ChannelPipeline-管理数据流以及执行应用程序处理逻辑" class="headerlink" title="2.ChannelHandler ChannelPipeline  管理数据流以及执行应用程序处理逻辑"></a>2.ChannelHandler ChannelPipeline  管理数据流以及执行应用程序处理逻辑</h2><p>​        ChannelHandler  </p><p>​            ①入站和出站的数据的程序逻辑容器，②编解码，③异常通知，④channel编程活动或非活动的通知，⑤</p><p>​            注册Eventloop，或者注销  Eventloop的通知，⑥用户自定义的事件通知</p><p>​            常用的   ChannelHandlerAdapter </p><p>​                    ChannelInboundHandlerAdapter</p><p>​                    ChannelOutboundHandlerAdapter</p><p>​                    ChannelDuplexHandler</p><p>​                    编码器、解码器</p><p>​                    SimpleChannelInboundHandler<t> T 需要处理的数据类型  ctx是可以继续传递下去</t></p><p>​        ChannelPipeline   （拦截过滤器实现）</p><p>​            是ChannelHandler  处理链的容器 出站和入站方向相反</p><p>​        引导 </p><p>​            为应用程序网络层配置提供容器，将进程绑定和端口或者将进程连接到某个指定主机的指定端口进程，面</p><p>​        向连接的协议，如 tcp</p><p>​            Bootstrap   一个EventLoopGroup</p><p>​            ServerBootstrap  两个EventLoopGroup （当然也可以共用一个） 一个用来监听服务，一个用来处理传入</p><p>​            客户端的连接</p><h1 id="4-传输"><a href="#4-传输" class="headerlink" title="4.传输"></a>4.传输</h1><p>​    OIO（阻塞）、NIO（非阻塞）、Local（JVM内部的异步通信）、Embedded（测试channelHandler）</p><p>​    netty的api 比较统一，只需要少量修改</p><h2 id="1-传输的api"><a href="#1-传输的api" class="headerlink" title="1.传输的api"></a>1.传输的api</h2><p>​    channel  线程安全的</p><p>​        EventLoop eventLoop(); 返回分配的eventLoop</p><p>​        ChannelPipeline pipeline(); 返回分配的ChannelPipeline </p><p>​        boolean isActive(); 是否是活动的</p><p>​        SocketAddress localAddress(); 返回本地的 SocketAddress </p><p>​        SocketAddress remoteAddress(); 返回远程的 SocketAddress </p><p>​        ChannelFuture write(Object var1); 将数据写到远程节点，这个数据传递给 ChannelPipeline 写队列的第一个</p><p>​        Channel flush(); 将之前写的数据 清空缓冲区数据 冲刷到 底层传输</p><p>​        ChannelFuture writeAndFlush(Object var1); 写然后冲刷</p><h2 id="2-内置的传输"><a href="#2-内置的传输" class="headerlink" title="2.内置的传输"></a>2.内置的传输</h2><p>​        提供的开箱可用的传输</p><p>​        1.NIO  io.netty.channel.socket.nio     java NIO为基础</p><p>​            选择器背后就是个注册表，当channel 发生变化时，得到通知，可能的变化：</p><p>​                新的channel已经接受并且就绪 OP_ACCEPT</p><p>​                channel连接已经完成 OP_CONNECT</p><p>​                channel有已经就绪的可供读取的数据  OP_READ</p><p>​                channel可用于写数据    OP_WRITE</p><p>​                zero-copy（直接将数据从文件移动到网络接口）</p><p>​        2.Epoll io.netty.channel.epoll      基于JNI驱动的epoll()和非阻塞IO，在linux上更快，比NIO更快</p><p>​            linux jdk nio 使用了这一特性，但是netty 做了自己的统一封装 （使用了更加轻量的中断）比jdk 更高效</p><p>​            替换的话 Epoll 的serverSocket和EvevtLoopGroup    </p><p>​        3.OIO io.netty.channme.socket.oio 使用java.net 包的阻塞流</p><p>​            适用于某些阻塞的调用库（jdbc）等</p><p>​        4.Local io.netty.channel.local  在JVM内部通过管道进行通信的本地传输​            </p><p>​        5.Embedded io.netty.channel.embedded  Embedded传输，允许使用channelhandler不是真正的网络传输，为</p><p>​          了测试channelHandler</p><table><thead><tr><th>传输</th><th>TCP</th><th>UDP</th><th>SCT</th><th>UDT</th></tr></thead><tbody><tr><td>NIO</td><td>√</td><td>√</td><td>√</td><td>√</td></tr><tr><td>Epoll（仅linux）</td><td>√</td><td>√</td><td>×</td><td>×</td></tr><tr><td>OIO</td><td>√</td><td>√</td><td>√</td><td>√</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一款异步的事件驱动的网络应用程序框架&lt;/p&gt;
-&lt;p&gt;阻塞   发起  —-》阻塞…. 阻塞  —–》完成&lt;/p&gt;
-&lt;p&gt;   检查…检查—-》阻塞—-》完成&lt;/p&gt;
-&lt;p&gt;​    阻塞与非阻塞是进程在访问数据的时候，数据是否准备就绪的处理方式，数据没准备好，要么等待数据准
-      
-    
-    </summary>
-    
-      <category term="nacos" scheme="http://yoursite.com/categories/nacos/"/>
-    
     
   </entry>
   

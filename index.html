@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     
@@ -13,7 +13,7 @@
 <meta property="og:title" content="旺仔-空间">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="旺仔-空间">
-<meta property="og:locale" content="cn">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Gordon gy">
 <meta name="twitter:card" content="summary">
     
@@ -81,53 +81,12 @@
                 
                     <a class="main-nav-link" href="/archives">归档</a>
                 
-                    <a class="main-nav-link" href="/categories">分类</a>
-                
                     <a class="main-nav-link" href="/tags">标签</a>
                 
                     <a class="main-nav-link" href="/about">关于</a>
                 
             </nav>
             
-            <div id="search-form-wrap">
-
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-</div>
         </div>
     </div>
     <div id="main-nav-mobile" class="header-sub header-inner">
@@ -138,17 +97,13 @@
                 
                     <td><a class="main-nav-link" href="/archives">归档</a></td>
                 
-                    <td><a class="main-nav-link" href="/categories">分类</a></td>
-                
                     <td><a class="main-nav-link" href="/tags">标签</a></td>
                 
                     <td><a class="main-nav-link" href="/about">关于</a></td>
                 
                 <td>
                     
-    <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
-    </div>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
                 </td>
             </tr>
@@ -164,7 +119,7 @@
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>分类</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -174,6 +129,15 @@
         
         
          <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            dubbo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/dubbo/dubbo%20%E9%97%AE%E9%A2%98/">dubbo 问题</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -189,18 +153,18 @@
                             &nbsp;
                             netty
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/netty/netty-action/">netty源码解析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/netty/Java%20NIO/">Java-NIO</a></li>  <li class="file"><a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">Netty-ByteBuf</a></li>  <li class="file"><a href="/wiki/netty/netty-action/">netty源码解析</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            seata
+                            reactor
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/seata%20%E6%BA%90%E7%A0%81/">Seata 源码解析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/reactor/reactor_3_guid_%E7%BF%BB%E8%AF%91%E4%B8%8D%E5%85%A8/">reactor guid</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -272,204 +236,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/hello-world/">
-            <time datetime="2020-04-22T01:24:57.129Z" itemprop="datePublished">2020-04-22</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/hello-world.md" target="_blank" rel="external nofollow noopener noreferrer"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/hello-world.md" target="_blank" rel="external nofollow noopener noreferrer"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/hello-world.md" target="_blank" rel="external nofollow noopener noreferrer"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/hello-world/">Hello World</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external nofollow noopener noreferrer">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external nofollow noopener noreferrer">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external nofollow noopener noreferrer">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external nofollow noopener noreferrer">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external nofollow noopener noreferrer">Server</a></p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/wiki/hello-world/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-seata 源码" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/seata/">seata</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/seata/" rel="tag">seata</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/seata%20%E6%BA%90%E7%A0%81/">
-            <time datetime="2020-04-22T01:24:57.129Z" itemprop="datePublished">2020-04-22</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/seata 源码.md" target="_blank" rel="external nofollow noopener noreferrer"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/seata 源码.md" target="_blank" rel="external nofollow noopener noreferrer"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/seata 源码.md" target="_blank" rel="external nofollow noopener noreferrer"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/seata%20%E6%BA%90%E7%A0%81/">Seata 源码解析</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>一款异步的事件驱动的网络应用程序框架</p>
-<p>阻塞   发起  —-》阻塞…. 阻塞  —–》完成</p>
-<p>   检查…检查—-》阻塞—-》完成</p>
-<p>​    阻塞与非阻塞是进程在访问数据的时候，数据是否准备就绪的处理方式，数据没准备好，要么等待数据准备好处理，要么直接返回即不处理</p>
-<p>同步    <strong>双方的动作是经过双方协调的，步调一致的</strong></p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/wiki/seata%20%E6%BA%90%E7%A0%81/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-nacos/nacos" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -497,16 +263,6 @@
                             <i class="fa fa-bar-chart"></i>
                             <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
                         
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/nacos/nacos.md" target="_blank" rel="external nofollow noopener noreferrer"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/nacos/nacos.md" target="_blank" rel="external nofollow noopener noreferrer"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/nacos/nacos.md" target="_blank" rel="external nofollow noopener noreferrer"> History </a>
-                            </div>
                         
                     </div>
                 
@@ -555,7 +311,7 @@
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/wiki/nacos/nacos/#more">Read More</a>
+                <a href="/wiki/nacos/nacos/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -601,16 +357,6 @@
                             <i class="fa fa-bar-chart"></i>
                             <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
                         
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/netty/netty-action.md" target="_blank" rel="external nofollow noopener noreferrer"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/netty/netty-action.md" target="_blank" rel="external nofollow noopener noreferrer"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/netty/netty-action.md" target="_blank" rel="external nofollow noopener noreferrer"> History </a>
-                            </div>
                         
                     </div>
                 
@@ -659,7 +405,383 @@
         
             </p></div>   
             <div class="article-more-link">
-                <a href="/wiki/netty/netty-action/#more">Read More</a>
+                <a href="/wiki/netty/netty-action/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-netty/Netty-new笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/netty/">netty</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/netty/" rel="tag">netty</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">
+            <time datetime="2020-02-24T00:31:59.857Z" itemprop="datePublished">2020-02-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">Netty-ByteBuf</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="ByteBuf"><a href="#ByteBuf" class="headerlink" title="ByteBuf"></a>ByteBuf</h2><h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><blockquote>
+<ul>
+<li><p>内存的类别有哪些？</p>
+</li>
+<li><p>如何减少多线程内存分配之间的竞争？</p>
+<p>
+                
+            
+        
+        
+            </p></li></ul></blockquote></div>   
+            <div class="article-more-link">
+                <a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-reactor/reactor_3_guid_翻译不全" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/reactor/">reactor</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/reactor/" rel="tag">reactor</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/reactor/reactor_3_guid_%E7%BF%BB%E8%AF%91%E4%B8%8D%E5%85%A8/">
+            <time datetime="2020-01-10T05:47:02.197Z" itemprop="datePublished">2020-01-10</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/reactor/reactor_3_guid_%E7%BF%BB%E8%AF%91%E4%B8%8D%E5%85%A8/">reactor guid</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h1 id="About-the-Documentation"><a href="#About-the-Documentation" class="headerlink" title="About the Documentation"></a>About the Documentation</h1><p>本节简要概述了Reactor参考文档。不需要一行一行地阅读本指南，每一节都是独立的，尽管他们经常互相引用。</p>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><h2 id="Introducing-Reactor"><a href="#Introducing-Reactor" class="headerlink" title="Introducing Reactor"></a>Introducing Reactor</h2><p>Reactor是JVM上的完全非阻塞的响应式编程框架，支持有效的需求管理（通过背压的方式）。它直接与Java 8的函数式API集成，特别是CompletableFuture、Stream和Duration。它提供了可组合的异步序列（asynchronous sequence）API：Flux（用于[N]个元素）和Mono（用于 [0|1]个元素）。广泛实现了<a href="https://www.reactive-streams.org/" target="_blank" rel="external nofollow noopener noreferrer">Reactive Streams</a>。<br>使用reactor-netty，Reactor也支持非阻塞的进程间通信。配合微服务架构，Reactor Netty为HTTP（包括Websockets）、TCP和UDP提供了背压的网络引擎。完全支持响应式的Encoding和Decoding。</p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Reactor Core最低支持Java 8。<br>它依赖org.reactivestreams:reactive-streams:1.0.2。</p>
+<p>Android支持：</p>
+<ul>
+<p>
+                
+            
+        
+        
+            </p></ul></div>   
+            <div class="article-more-link">
+                <a href="/wiki/reactor/reactor_3_guid_%E7%BF%BB%E8%AF%91%E4%B8%8D%E5%85%A8/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-dubbo/dubbo 问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/dubbo/">dubbo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/netty/" rel="tag">netty</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/dubbo/dubbo%20%E9%97%AE%E9%A2%98/">
+            <time datetime="2019-07-07T01:56:06.439Z" itemprop="datePublished">2019-07-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/dubbo/dubbo%20%E9%97%AE%E9%A2%98/">dubbo 问题</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h4 id="dubbo-问题"><a href="#dubbo-问题" class="headerlink" title="dubbo 问题"></a>dubbo 问题</h4><p>1.dubbo adapter 如何实现动态切换服务实现者</p>
+<p>  A.通过动态代理</p>
+<p>  B.通过适配器 加 URL BUS</p>
+<p>  C.通过动态代理加URL BUS </p>
+<p>2.dubbo filter 如何动态扩展业务功能</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/wiki/dubbo/dubbo%20%E9%97%AE%E9%A2%98/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-netty/Java NIO" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/netty/">netty</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/netty/" rel="tag">netty</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/netty/Java%20NIO/">
+            <time datetime="2019-06-12T07:56:26.913Z" itemprop="datePublished">2019-06-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/netty/Java%20NIO/">Java-NIO</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="Java-NIO"><a href="#Java-NIO" class="headerlink" title="Java NIO"></a>Java NIO</h2><h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><p>Java NIO 中的 Buffer 用于和 NIO 通道进行交互。如你所知，数据是从通道读入缓冲区，从缓冲区写入到通道中的。</p>
+<p>缓冲区本质上是一块可以写入数据，然后可以从中读取数据的内存。这块内存被包装成 NIO Buffer对象，并提供了一组方法，用来方便的访问该块内存。</p>
+<h5 id="Buffer的基本用法"><a href="#Buffer的基本用法" class="headerlink" title="Buffer的基本用法"></a>Buffer的基本用法</h5><p>使用 Buffer 读写数据一般遵循以下四个步骤</p>
+<blockquote>
+<p>1.写入数据到Buffer</p>
+<p>
+                
+            
+        
+        
+            </p></blockquote></div>   
+            <div class="article-more-link">
+                <a href="/wiki/netty/Java%20NIO/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -679,7 +801,6 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             Gordon gy &copy; 2020 
-            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
             <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" target="_blank" rel="external nofollow noopener noreferrer">wikitten</a>
             
                 <br>

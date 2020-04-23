@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     
@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/wiki/netty/netty-action/index.html">
 <meta property="og:site_name" content="旺仔-空间">
 <meta property="og:description" content="一款异步的事件驱动的网络应用程序框架 阻塞   发起  —-》阻塞…. 阻塞  —–》完成    检查…检查—-》阻塞—-》完成 ​    阻塞与非阻塞是进程在访问数据的时候，数据是否准备就绪的处理方式，数据没准备好，要么等待数据准备好处理，要么直接返回即不处理 同步    双方的动作是经过双方协调的，步调一致的 异步    双方并不需要协调，都可以随意进行各自的操作 ​    同步与异步都是基于">
-<meta property="og:locale" content="cn">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-22T01:24:57.128Z">
 <meta property="article:modified_time" content="2020-04-22T03:20:33.248Z">
 <meta property="article:author" content="Gordon gy">
@@ -86,53 +86,12 @@
                 
                     <a class="main-nav-link" href="/archives">归档</a>
                 
-                    <a class="main-nav-link" href="/categories">分类</a>
-                
                     <a class="main-nav-link" href="/tags">标签</a>
                 
                     <a class="main-nav-link" href="/about">关于</a>
                 
             </nav>
             
-            <div id="search-form-wrap">
-
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-</div>
         </div>
     </div>
     <div id="main-nav-mobile" class="header-sub header-inner">
@@ -143,17 +102,13 @@
                 
                     <td><a class="main-nav-link" href="/archives">归档</a></td>
                 
-                    <td><a class="main-nav-link" href="/categories">分类</a></td>
-                
                     <td><a class="main-nav-link" href="/tags">标签</a></td>
                 
                     <td><a class="main-nav-link" href="/about">关于</a></td>
                 
                 <td>
                     
-    <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
-    </div>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
                 </td>
             </tr>
@@ -169,7 +124,7 @@
         
     <div class="widget-wrap" id="categories">
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>分类</span>
             &nbsp;
             <a id="allExpand" href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -179,6 +134,15 @@
         
         
          <ul class="unstyled" id="tree"> 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            dubbo
+                        </a>
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/dubbo/dubbo%20%E9%97%AE%E9%A2%98/">dubbo 问题</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -194,18 +158,18 @@
                             &nbsp;
                             netty
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file active"><a href="/wiki/netty/netty-action/">netty源码解析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/netty/Java%20NIO/">Java-NIO</a></li>  <li class="file"><a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">Netty-ByteBuf</a></li>  <li class="file active"><a href="/wiki/netty/netty-action/">netty源码解析</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            seata
+                            reactor
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/seata%20%E6%BA%90%E7%A0%81/">Seata 源码解析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/reactor/reactor_3_guid_%E7%BF%BB%E8%AF%91%E4%B8%8D%E5%85%A8/">reactor guid</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -308,16 +272,6 @@
                             <i class="fa fa-bar-chart"></i>
                             <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
                         
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/netty/netty-action.md" target="_blank" rel="external nofollow noopener noreferrer"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/netty/netty-action.md" target="_blank" rel="external nofollow noopener noreferrer"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/netty/netty-action.md" target="_blank" rel="external nofollow noopener noreferrer"> History </a>
-                            </div>
                         
                     </div>
                 
@@ -462,7 +416,7 @@
 <nav id="article-nav">
     
         <a href="/wiki/nacos/nacos/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
                     Nacos 实战
@@ -470,6 +424,11 @@
             </div>
         </a>
     
+    
+        <a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Netty-ByteBuf</div>
+        </a>
     
 </nav>
 
@@ -493,7 +452,6 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             Gordon gy &copy; 2020 
-            <a rel="external nofollow noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png"></a>
             <br> Powered by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" target="_blank" rel="external nofollow noopener noreferrer">wikitten</a>
             
                 <br>

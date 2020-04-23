@@ -3,19 +3,28 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: nacos | 旺仔-空间</title>
+    <title>Netty-ByteBuf | 旺仔-空间</title>
     
     
-        <meta name="keywords" content="旺仔-空间">
+        <meta name="keywords" content="netty">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="旺仔-空间">
-<meta property="og:url" content="http://yoursite.com/categories/nacos/index.html">
+    <meta name="description" content="ByteBuf常见问题  内存的类别有哪些？  如何减少多线程内存分配之间的竞争？  不同大小的内存是如何进行分配的？   ByteBuf 结构及重要API Bytebuf 结构   readerIndex 读指针 writerIndex 写指针 capacity 容量 maxCapacity 最大容量    ByteBuf 分类  Pooled 和 Unpooled   Pooled  从预先分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty-ByteBuf">
+<meta property="og:url" content="http://yoursite.com/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="旺仔-空间">
+<meta property="og:description" content="ByteBuf常见问题  内存的类别有哪些？  如何减少多线程内存分配之间的竞争？  不同大小的内存是如何进行分配的？   ByteBuf 结构及重要API Bytebuf 结构   readerIndex 读指针 writerIndex 写指针 capacity 容量 maxCapacity 最大容量    ByteBuf 分类  Pooled 和 Unpooled   Pooled  从预先分">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/Users/guoyin/Library/Application%20Support/typora-user-images/image-20200223095544828.png">
+<meta property="og:image" content="http://yoursite.com/Users/guoyin/Library/Application%20Support/typora-user-images/image-20200223102244363.png">
+<meta property="og:image" content="http://yoursite.com/Users/guoyin/Library/Application%20Support/typora-user-images/image-20200223113955620.png">
+<meta property="article:published_time" content="2020-02-24T00:31:59.857Z">
+<meta property="article:modified_time" content="2020-04-22T11:44:51.873Z">
 <meta property="article:author" content="Gordon gy">
+<meta property="article:tag" content="netty">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/Users/guoyin/Library/Application%20Support/typora-user-images/image-20200223095544828.png">
     
 
     
@@ -147,13 +156,13 @@
                          <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/nacos/nacos/">Nacos 实战</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             netty
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/netty/Java%20NIO/">Java-NIO</a></li>  <li class="file"><a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">Netty-ByteBuf</a></li>  <li class="file"><a href="/wiki/netty/netty-action/">netty源码解析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/netty/Java%20NIO/">Java-NIO</a></li>  <li class="file active"><a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">Netty-ByteBuf</a></li>  <li class="file"><a href="/wiki/netty/netty-action/">netty源码解析</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -235,16 +244,168 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><section class="layout-wrap">
-    <div class="layout-title">
-        <span></span>
-    </div>
-    <div class="layout-wrap-inner list-categories">
+            <section id="main"><article id="post-netty/Netty-new笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/">dubbo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nacos/">nacos</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/netty/">netty</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/reactor/">reactor</a><span class="category-list-count">1</span></li></ul>
         
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/netty/">netty</a>
     </div>
-</section></section>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/netty/" rel="tag">netty</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/netty/Netty-new%E7%AC%94%E8%AE%B0/">
+            <time datetime="2020-02-24T00:31:59.857Z" itemprop="datePublished">2020-02-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Netty-ByteBuf
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="ByteBuf"><a href="#ByteBuf" class="headerlink" title="ByteBuf"></a>ByteBuf</h2><h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><blockquote>
+<ul>
+<li><p>内存的类别有哪些？</p>
+</li>
+<li><p>如何减少多线程内存分配之间的竞争？</p>
+</li>
+<li>不同大小的内存是如何进行分配的？</li>
+</ul>
+</blockquote>
+<h4 id="ByteBuf-结构及重要API"><a href="#ByteBuf-结构及重要API" class="headerlink" title="ByteBuf 结构及重要API"></a>ByteBuf 结构及重要API</h4><ul>
+<li><p>Bytebuf 结构</p>
+<p><img src="/Users/guoyin/Library/Application Support/typora-user-images/image-20200223095544828.png" alt="image-20200223095544828"></p>
+<ul>
+<li>readerIndex 读指针</li>
+<li>writerIndex 写指针</li>
+<li>capacity 容量</li>
+<li>maxCapacity 最大容量</li>
+</ul>
+</li>
+</ul>
+<h4 id="ByteBuf-分类"><a href="#ByteBuf-分类" class="headerlink" title="ByteBuf 分类"></a>ByteBuf 分类</h4><p><img src="/Users/guoyin/Library/Application Support/typora-user-images/image-20200223102244363.png" alt="image-20200223102244363"></p>
+<ul>
+<li><p>Pooled 和 Unpooled</p>
+<blockquote>
+<ul>
+<li><p>Pooled </p>
+<p>从预先分配好的一块内存，去取一段连续内存封装成ByteBuf, 返回给应用程序</p>
+</li>
+<li><p>Unpooled</p>
+<p>每次进行内存分配时，直接调用系统API，向操作系统申请一块内存。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Unsafe 和 非Unsafe</p>
+<blockquote>
+<ul>
+<li><p>Unsafe </p>
+<p>(JDK里有unsafe对象，他可以直接拿到对象内存地址，基于内存地址可以进行一些读写操作)</p>
+<p>如果是一个Unsafe类型的bytebuf, 可以直接拿到ByteBuf在 JVM里的具体的内存，可以直接调用jdk的unsafe进行读写。</p>
+</li>
+<li><p>非Unsafe 不会依赖到JDK底层unsafe的对象</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Heap 和 Direct</p>
+<blockquote>
+<ul>
+<li><p>Heap</p>
+<p>直接在堆上进行内存分配，分配的内存受GC管理，不需要手动释放</p>
+</li>
+<li><p>Direct</p>
+<p>直接调用JDK的API进行内存分配，不受JVM控制，所以最终不会参与GC过程，需要手动释放。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="ByteBufAllocator-内存分配管理器"><a href="#ByteBufAllocator-内存分配管理器" class="headerlink" title="ByteBufAllocator 内存分配管理器"></a>ByteBufAllocator 内存分配管理器</h4><ul>
+<li><p>AbstractByteBufAllocator </p>
+<p>是实现了 ByteBufAllocator </p>
+</li>
+<li><p>两大子类  UnpooledByteBufAallocator/PooledByteBufAllocator</p>
+<p><img src="/Users/guoyin/Library/Application Support/typora-user-images/image-20200223113955620.png" alt="image-20200223113955620"></p>
+</li>
+</ul>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/netty/netty-action/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    netty源码解析
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/reactor/reactor_3_guid_%E7%BF%BB%E8%AF%91%E4%B8%8D%E5%85%A8/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">reactor guid</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
         </div>
         <footer id="footer">
     <div class="outer">
